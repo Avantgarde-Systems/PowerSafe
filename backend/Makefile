@@ -65,7 +65,6 @@ up-all: check-network
 	$(MAKE) up-pgadmin
 	$(MAKE) up-adminer
 	$(MAKE) up-monitoring
-	$(MAKE) fastapi
 
 up-all-no-cache: check-network
 	$(MAKE) up-db-no-cache
@@ -73,7 +72,6 @@ up-all-no-cache: check-network
 	$(MAKE) up-pgadmin
 	$(MAKE) up-adminer
 	$(MAKE) up-monitoring
-	$(MAKE) up-fastapi
 
 down-all:
 	$(MAKE) down-db
@@ -81,38 +79,32 @@ down-all:
 	$(MAKE) down-pgadmin
 	$(MAKE) down-adminer
 	$(MAKE) down-monitoring
-	$(MAKE) down-fastapi
 
 up-all-without-monitoring: check-network
 	$(MAKE) up-db
 	$(MAKE) up-django
 	$(MAKE) up-pgadmin
 	$(MAKE) up-adminer
-	$(MAKE) up-fastapi
 
 up-all-no-cache-without-monitoring: check-network
 	$(MAKE) up-db-no-cache
 	$(MAKE) up-django-no-cache
 	$(MAKE) up-pgadmin
 	$(MAKE) up-adminer
-	$(MAKE) up-fastapi
 
 up-all-no-cache-without-monitoring-prod: check-network-prod
 	$(MAKE) up-db-no-cache-prod
 	$(MAKE) up-django-no-cache-prod
-	$(MAKE) up-fastapi-prod
 
 down-all-without-monitoring:
 	$(MAKE) down-db
 	$(MAKE) down-django
-	$(MAKE) down-fastapi
 
 down-all-without-monitoring-prod:
 	$(MAKE) down-db-prod
 	$(MAKE) down-django-prod
 	$(MAKE) down-pgadmin-prod
 	$(MAKE) down-adminer-prod
-	$(MAKE) down-fastapi-prod
 
 down-all-volumes:
 	$(MAKE) down-db-volumes
@@ -120,7 +112,6 @@ down-all-volumes:
 	$(MAKE) down-pgadmin-volumes
 	$(MAKE) down-adminer-volumes
 	$(MAKE) down-monitoring-volumes
-	$(MAKE) down-fastapi-volumes
 
 up-monitoring:
 	$(DC) -f docker_compose/elastic/docker-compose.yml \
