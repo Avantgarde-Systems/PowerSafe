@@ -146,7 +146,7 @@ services:
       - ../../src:/app/src 
       - ../../.env:/app/.env
     ports:
-      - "5555:5555"
+      - "8000:5555"
     depends_on:
       - django
       - redis
@@ -165,7 +165,7 @@ services:
     restart: unless-stopped
     hostname: redis
     ports:
-      - "6380:6379"
+      - "8001:6379"
     networks:
     - backend
     healthcheck:
@@ -183,8 +183,7 @@ services:
     restart: unless-stopped
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
     ports:
-      - "80:80"
-      - "443:443"
+      - "8002:80"
     volumes:
       - ../../logs/nginx:/var/log/nginx
       - ../../src:/app/src 
