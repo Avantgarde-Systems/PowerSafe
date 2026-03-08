@@ -463,6 +463,12 @@ pyrightconfig.json
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow
 
+backups/
+backups
+/backups
+/backups/
+/docker_compose/db/backups/*
+
 
 ### react ###
 .DS_*
